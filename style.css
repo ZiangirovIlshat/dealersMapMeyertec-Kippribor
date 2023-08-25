@@ -1,0 +1,333 @@
+.selectCountry {
+    padding: 10px 10px 10px 20px;
+    color: #4b505b;
+    font-weight: 500;
+    text-transform: uppercase;
+    z-index: 100;
+    position: absolute;
+    border-radius: 5px;
+    border: 1px solid #fff;
+     margin: 2% 0 0 2%;
+  }
+.dealer_info p {
+    margin: 7px 0;
+}
+  
+.mt_btn{
+    font-weight: 500;
+    background-color: #ffcb04;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.mt_btn:hover {
+    box-shadow: 0 0 5px #ccc;
+}
+  
+#map {
+    width: 97%; 
+    height: 75%; 
+    position: absolute;
+}
+  
+@media (max-width:1025px) {
+      #map {
+        width: 100%; 
+    }
+}
+
+.h1-tag {
+    display: none;
+}
+
+.tabs {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.tab {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    background: #f2f2f2;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.tab-active {
+    background: #ffcb04;
+}
+
+.tab-active > h2 {
+    color: #0f202a;
+}
+
+.tab-content {
+    width: 100%;
+    margin: 10px 0;
+    display: none;
+    min-height: 400px;
+}
+
+.active {
+    display: block;
+}
+  
+.dealer_filters input {
+    margin: 10px 0px;
+    width: 300px;
+    border: 1px solid #ededed;
+    color: #000;
+    font: 12px/18px Tahoma;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+
+.ui-menu-item-wrapper {
+    font: 12px/18px Tahoma;
+}
+
+.dealer_filters input::placeholder {
+    color: #647074;
+}
+
+#dealersListRegionSelector {
+    display: flex;
+    flex-direction: row;
+}
+
+#dealersListRegionSelector>div {
+    display: none;
+    flex-shrink: 0;
+}
+
+#dealersListCitySelector {
+    font-size: 14px;
+}
+
+#dealersListRegionSelector>div:not(:first-child) {
+    flex-grow: 1;
+}
+
+#dealersListRegionSelector>div:first-child {
+    width: 260px;
+}
+          
+#dealersListRegionSelector h4 {
+    color: #009999;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+#dealersListRegionSelector ul {
+    list-style: none;
+    padding: 0 0 0 5px;
+    margin: 0;
+}
+
+#dealersListRegionSelector ul>li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+#dealersListRegionSelector ul>li>a {
+    display: block;
+    padding: 2px 10px;
+    color: #9f0412;
+    line-height: 1;
+}
+
+#dealersListRegionSelector ul>li>a.active {
+    color: white;
+    background-color: #9f0412;
+}
+
+#dealersList>ul>li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+}
+
+#dealersList>ul>li:nth-child(odd) {
+    margin-right: 15px;
+}
+
+#dealersList>h2 {
+    color: #9f0412;
+}
+
+#dealersList>ul {
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    /*display: block;*/
+    margin: 0;
+    list-style: none;
+}
+
+#dealersList>ul>li {
+    display: inline-block;
+    width: 47%;
+    border: 1px solid #ededed;
+}
+
+#dealersList .dealer-item .dealer-city {
+    display: inline;
+    min-width: 260px;
+}
+
+#dealersList .dealer-item .dealer-name {
+    font: bold 14px/19px Tahoma;
+    border-bottom: 3px solid #ffcb04;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+}
+
+#dealersList .dealer-sc {
+    margin: 0px 5px;
+}
+
+#dealersList .dealer-rsi {
+    padding: 5px 10px 5px 10px;
+    margin: 0px 5px;
+    background-color: #9f0412;
+    color: white;
+    font-weight: bold;
+}
+
+#dealersList .dealer-item .dealer-info {
+    color: #647074;
+    font: 12px/18px Tahoma;
+}
+
+#dealersList .dealer-item .dealer-info>p {
+    font: 12px/18px Tahoma;
+    color: #000000;
+}
+
+#dealersList .dealer-item .dealer-info>p>strong {
+    color: #647074;
+}
+
+#dealersList .dealer-item.hidden {
+    display: none;
+}
+
+.mapsvg {
+    cursor: pointer;
+}
+
+.mapsvg-russia {
+    stroke: #d1d8db;
+    stroke-width: 20;
+}
+
+.mapsvg-russia-region {
+    fill: #009999;
+    stroke: white;
+    stroke-width: 3;
+}
+          
+#szfo,
+#cfo,
+#prfo,
+#ufo,
+#sbfo,
+#dvfo,
+#sfo,
+#nkfo,
+#kfo {}
+          
+#russia {
+    stroke: #d1d8db;
+    stroke-width: 20;
+}
+
+.mapsvg-country {
+    fill: #009999;
+    stroke: white;
+    stroke-width: 2;
+}
+
+.mapsvg-country.active,
+.mapsvg-russia-region.active {
+    fill: rgb(153, 0, 0);
+}
+
+#belarus {}
+
+#estonia {
+    display: none;
+}
+
+#latvia {
+    display: none;
+}
+
+#lithuania {
+    display: none;
+}
+
+#tajikistan {
+    display: none;
+}
+
+#turkmenistan {
+    display: none;
+}
+
+#uzbekistan {}
+
+#kirgistan {}
+
+#moldova {}
+
+#armenia {}
+
+#azerbaycan {
+    display: none;
+}
+
+#georgia {
+    display: none;
+}
+          
+#kazahstan {}
+
+#ukraine {}
+
+#mongolia {
+    display: none;
+}
+          
+.mapsvg:hover:not(.active) {
+    fill: #386161;
+}
+          
+.mapsvg-russia-region-kfo:hover:not(.active) {
+    fill: #009999;
+    cursor: default;
+}
+
+.dealer_filters_clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 12px;
+    background-color: #0f202a;
+    color: #fff;
+    border: 2px solid #0f202a;
+    border-radius: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.dealer_filters_clear:hover {
+    background-color: #fff;
+    color: #0f202a;
+}

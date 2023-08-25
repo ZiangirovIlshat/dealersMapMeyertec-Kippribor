@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://owen.ru/upl_files/libs/vue/vue2.js"></script>
+</head>
+<body>
+
+    <div class="container" style="max-width: 1400px; margin: 0 auto; overflow: hidden;">
+
+        <style>
+            [v-cloack] {
+                display: none;
+            }
+        </style>
+
+        <div class="app" v-cloack>
+            <div class="tabs">
+                <div class="tab" :class="{'tab-active': selectedTab === 1 }" data-tab="1" @click="getActiveTab(1)"><h2>Список дилеров</h2></div>
+                <div class="tab" :class="{'tab-active': selectedTab === 2 }" data-tab="2" @click="getActiveTab(2)"><h2>Карта</h2></div>
+            </div>
+        
+            <div class="tab-content" :class="{'active' : selectedTab === 2 }">
+                <div id="map"></div>
+                <select class="selectCountry" @change="setZoom(event.target.value)">
+                        <option value="ru">Россия</option>
+                        <option value="ru_cent">-Центральный</option>
+                        <option value="ru_nw">-Северо-Западный</option>
+                        <option value="ru_south">-Южный</option>
+                        <option value="ru_privol">-Приволжский</option>
+                        <option value="ru_ural">-Уральский</option>
+                        <option value="ru_kavkaz">-Северо-Кавказский</option>
+                        <option value="ru_sibir">-Сибирский</option>
+                        <option value="ru_east">-Дальневосточный</option>
+                        <option value="by">Беларусь</option>
+                        <option value="kz">Казахстан</option>
+                        <option value="kg">Киргизия</option>
+                </select>
+            </div>
+    
+            <div class="tab-content" :class="{'active' : selectedTab === 1 }"  data-tab="2">
+                <div class="dealer_filters">
+                    <div class="dealer_regions_filters">
+                        <input @change="hintsForInput()" type="text" placeholder="Введите регион" spellcheck="false" v-model="region" list="region">
+                        <datalist id="region">
+                            <option v-for="oneReg in regions" v-bind:value="oneReg">
+                        </datalist>
+                    </div>
+
+                    <div class="dealer_city_filters">
+                        <input @change="hintsForInput()" type="text" placeholder="Введите город" v-model="city" list="city">
+                        <datalist id="city">
+                            <option v-for="oneCity in cities" v-bind:value="oneCity">
+                        </datalist>
+                    </div>
+
+                    <div class="dealer_companies_filters">
+                        <input @change="hintsForInput()" type="text" id="dealer_companies_filters_id" placeholder="Введите название компании" v-model="name" list="company">
+                        <datalist id="company">
+                            <option v-for="oneName in names" v-bind:value="oneName">
+                        </datalist>
+                    </div>
+
+                    <button class="dealer_filters_clear" @click="clear()">Очистить фильтры ✖</button>
+                    <br>
+                </div>
+            
+                <div id="dealersList">
+                    <ul>
+                        <li v-for="item in dealerData" class="dealer-item" v-show="sortFunc(item)"><span class="dealer-name">{{item.name}}</span>
+                            <div class="dealer-info">
+                                <p><strong>Город:</strong><span class="dealer-city"> {{item.city}}</span></p>
+            
+                                <p><strong>Адрес:</strong> {{item.address}}</p>
+            
+                                <p><strong>Телефон:</strong> <a v-bind:href="applyTel(item)">{{item.phones[0].name}}</a> </p>
+            
+                                <p><strong>E-mail:</strong> {{item.email}}</p>
+            
+                                <p><strong>Сайт:</strong><a v-bind:href="item.site" rel="nofollow" target="_blank"> {{item.site}}</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            
+            </div>
+    
+        </div>
+
+
+    </div>
+
+
+
+    <script src="dealersData.js"></script>
+    <script defer src="main.js"></script>
+</body>
+</html>
